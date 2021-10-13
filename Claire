@@ -64,3 +64,9 @@ with open('5.3_example_one.txt', 'r') as example_one:
                 count += 1
             
     print("The word {} was counted {} times".format(word, count))
+ 
+ import os
+os.getcwd()
+
+os.chdir(path)
+
