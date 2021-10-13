@@ -1,0 +1,66 @@
+with open('to-do.txt', 'a+') as to_do:
+    new_item = input('New to-do item? ')
+    to_do.write(new_item)
+    to_do.write('\n')
+
+# Add code to open the csv file
+
+import csv
+
+with open('PythonJupyter/Notes & Exercises/CodeFirstGirls/trees.csv', 'r') as csv_file:
+    spreadsheet = csv.DictReader(csv_file)
+    heights = []
+
+    for row in spreadsheet:
+        tree_height = row['height']
+        heights.append(tree_height)
+        
+    shortest_height = min(heights)
+    
+    print(shortest_height)
+
+# Add code to open the csv file
+
+import csv
+
+with open('trees.csv', 'r') as csv_file:
+    spreadsheet = csv.DictReader(csv_file)
+    heights = []
+
+    for row in spreadsheet:
+        tree_height = row['height']
+        heights.append(tree_height)
+        
+    shortest_height = min(heights)
+    
+    print(shortest_height)
+
+with open('PythonJupyter/Notes & Exercises/CodeFirstGirls/5.3_example_one.txt', 'r') as example_one:
+    word  = input('Word to be counted? ')
+
+    Lines = example_one.readlines() 
+  
+    count = 0
+    # Strips the newline character 
+    for line in Lines: 
+        words = line.split()
+        for w in words:
+            if w == word:
+                count += 1
+            
+    print("The word {} was counted {} times".format(word, count))
+
+with open('5.3_example_one.txt', 'r') as example_one:
+    word  = input('Word to be counted? ')
+
+    Lines = example_one.readlines() 
+  
+    count = 0
+    # Strips the newline character 
+    for line in Lines: 
+        words = line.split()
+        for w in words:
+            if w == word:
+                count += 1
+            
+    print("The word {} was counted {} times".format(word, count))
