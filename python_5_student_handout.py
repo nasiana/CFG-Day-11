@@ -23,7 +23,9 @@ with open('C:/Users/owned/Documents/CFG_Nanodegree/CFG-Day-11 (Python foundation
 todo2 = todo2 + new_to_do + '\n'
 
 with open('C:/Users/owned/Documents/CFG_Nanodegree/CFG-Day-11 (Python foundation 5)/to-do_items.txt', 'w+') as to_do:
-    to_do.write(new_to_do)
+    # important that todo2 is in the argument as it adds to the original document rather than overwriting the entire /
+    # file which would happen if new_to_do was in the argument instead
+    to_do.write(todo2)
 
 file = open('C:/Users/owned/Documents/CFG_Nanodegree/CFG-Day-11 (Python foundation 5)/to-do_items.txt', 'r')
 content2 = file.read()
