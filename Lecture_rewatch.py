@@ -200,11 +200,6 @@ Your program will take a word from the user and count the number of occurrences 
 (use file: 5.3_example_one.txt, save this file in the same folder as your Python program! )
 """
 
-##########################################################################################
-# NB: solve this problem together with the group                                         #
-# start with example one, it is a file without any punctuation, so it is easier to start #
-# we solve one level of complexity and then move on to another                           #
-##########################################################################################
 
 with open('5.3_example_one.txt', 'r') as read_file:
 # x will store the contents of read_file in a readable format
@@ -220,4 +215,30 @@ with open('5.3_example_one.txt', 'r') as read_file:
             count +=1
     print(filtered_list)
     print(count)
+
+
+#  EXAMPLE 1 -- sample solution
+
+fname = input("Enter file name: ")
+search_word = input("Enter word to be searched:").lower()
+
+count = 0
+
+with open(fname, 'r') as text:
+    for line in text:
+        # Remove the leading spaces and newline character
+        line = line.strip()
+
+        # Convert the characters in line to  lowercase to avoid case mismatch
+        line = line.lower()
+
+        # Split the line into words
+        words = line.split()
+
+        for word in words:
+            if (word == search_word):
+                count = count + 1
+
+print("Occurrences of the word: " + search_word)
+print(count)
 
