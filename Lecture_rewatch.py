@@ -96,8 +96,7 @@ with open('people.txt', 'r') as text_file:
     print(contents)
 
 
-#
-equivalent
+# equivalent
 
 file = open('people.txt', 'r')
 try:
@@ -123,4 +122,102 @@ with open('to-do_items.txt', 'r') as ex1_file:
     print(contents_ex1)
 
 with open('to-do_items.txt', 'a') as ex1_file:
-    ex1_file.write(user)
+# added the \n for a line break
+    ex1_file.write('\n' + user)
+    print(contents_ex1)
+
+# experimenting with a+
+# to-do programme
+user = input('Input a new to-do item: ')
+with open('to-do_items.txt', 'a+') as ex1_file:
+    contents_ex2 = ex1_file.read()
+    print(contents_ex2)
+# added the \n for a line break
+    ex1_file.write('\n' + user)
+    print(contents_ex2)
+
+"""
+Writing and reading files using CSV library in Python.
+"""
+
+# Writing a csv
+
+import csv
+
+field_names = ['name', 'age']
+
+data = [
+    {'name': 'Jill', 'age': 32},
+    {'name': 'Sara', 'age': 28},
+]
+
+with open('team.csv', 'w+') as csv_file:
+    spreadsheet = csv.DictWriter(csv_file, fieldnames=field_names)
+
+    spreadsheet.writeheader()
+    spreadsheet.writerows(data)
+
+# Reading a CSV
+
+import csv
+
+with open('team.csv', 'r') as csv_file:
+    spreadsheet = csv.DictReader(csv_file)
+    for row in spreadsheet:
+        print(dict(row))
+
+### EXERCISE 2 ###
+"""
+This program is supposed to read data about trees from a file to find the shortest tree. 
+Complete the program adding code to open 'trees.csv'.
+
+The trees.csv file included with your student guides. 
+Save the csv file in the same folder as your Python program!
+"""
+
+import csv
+
+# INDENTATION MATTERS
+with open('trees.csv', 'r') as csv_file:
+    spreadsheet = csv.DictReader(csv_file)
+
+    heights = []
+
+    for row in spreadsheet:
+        tree_height = row['height']
+        heights.append(tree_height)
+
+shortest_height = min(heights)
+print(shortest_height)
+
+### EXERCISE 3 ###
+"""
+PROBLEM SOLVING WITH PYTHON --> 
+
+Write a Python program to count the occurrences of a word in a text file.
+Your program will take a word from the user and count the number of occurrences of that word in a file.
+
+(use file: 5.3_example_one.txt, save this file in the same folder as your Python program! )
+"""
+
+##########################################################################################
+# NB: solve this problem together with the group                                         #
+# start with example one, it is a file without any punctuation, so it is easier to start #
+# we solve one level of complexity and then move on to another                           #
+##########################################################################################
+
+with open('5.3_example_one.txt', 'r') as read_file:
+# x will store the contents of read_file in a readable format
+    x = read_file.read()
+    print(x)
+# y splits x when strings are seperated by ' '
+    y = x.split( )
+    print(y)
+    counter = 0
+    filtered_list = [word for word in y if word == 'cat']
+    for i in y:
+        if i == 'cat':
+            count +=1
+    print(filtered_list)
+    print(count)
+
